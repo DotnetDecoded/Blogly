@@ -38,4 +38,16 @@ public class BloglyService(IBloglyRepository bloglyRepository) : IBloglyService
 
         return users.MapToResponse();   
     }
+
+    public async Task<CreateUserResponse?> GetUserAsync(Guid userId, CancellationToken token)
+    {
+        var user = await bloglyRepository.GetUserAsync(userId, token);
+
+        return user?.MapToResponse();     
+    }
+
+    public async Task<bool> DeleteUserAsync(Guid userId, CancellationToken token)
+    {
+        return await bloglyRepository.DeleteUserAsync(userId, token);
+    }
 }

@@ -1,6 +1,8 @@
 using Blogly.Contracts.Requests;
 using Blogly.Contracts.Responses;
+using Blogly.Domain;
 using Blogly.Domain.Entities;
+using Blogly.Sharedkernel;
 
 namespace Blogly.Contracts.Mappings;
 
@@ -10,8 +12,10 @@ public static class ModelMappings
     {
         return new ApplicationUser()
         {
+            Id = Guid.NewGuid(),
             FirstName = request.FirstName,
             LastName = request.LastName,
+            Role = Role.Author,
             Age = request.Age,
             Country = request.Country
         };
@@ -26,6 +30,7 @@ public static class ModelMappings
             LastName = entity.LastName,
             Age = entity.Age,
             Role = entity.Role.ToString(),
+            Token = JwtSecurityUtil.GenerateToken(entity),
             Country = entity.Country,
             Blogs = entity.Blogs.Select(MapToBlogResponse)
         };
@@ -35,6 +40,7 @@ public static class ModelMappings
     {
         return new Blog()
         {
+            Id = Guid.NewGuid(),
             Title = request.Title,
             Content = request.Content,
             AuthorId = request.AuthorId,
@@ -57,6 +63,7 @@ public static class ModelMappings
     {
         return new Comment()
         {
+            Id = Guid.NewGuid(),
             Content = request.Content,
             BlogId = request.BlogId,
             UserId = request.UserId,
