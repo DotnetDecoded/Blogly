@@ -1,0 +1,6 @@
+@Blogly_HostAddress = http://localhost:5130
+
+GET {{Blogly_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

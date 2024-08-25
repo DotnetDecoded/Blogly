@@ -1,0 +1,16 @@
+﻿services:
+  blogly.api:
+    image: blogly.api
+    build:
+      context: .
+      dockerfile: Blogly.API/Dockerfile
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=course
+      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_DB=BloglyDb
+    ports:
+      - '5432:5432'
+    

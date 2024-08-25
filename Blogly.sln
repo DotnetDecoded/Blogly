@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogly.API", "Blogly.API\Blogly.API.csproj", "{6E94CB4E-FBA1-405A-961C-656610C0AAFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogly.Domain", "Blogly.Domain\Blogly.Domain.csproj", "{374D1151-991D-4F3F-85C9-98CF9BDA1E4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogly.Sharedkernel", "Blogly.Sharedkernel\Blogly.Sharedkernel.csproj", "{9F57FBB1-0C24-445F-AABF-58F1EFA54B85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogly.Contracts", "Blogly.Contracts\Blogly.Contracts.csproj", "{DB48163F-B73E-431F-A6D1-5B642FA2F2E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogly.Infrastructure", "Blogly.Infrastructure\Blogly.Infrastructure.csproj", "{D42B444B-1B87-4E8E-95C3-C6AB8F8CBA1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogly.Application", "Blogly.Application\Blogly.Application.csproj", "{164D88AA-0947-4993-B8D3-228E7D0C3777}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{182D4F78-1D1E-4A52-8CAD-F9D0A8292E9A}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E94CB4E-FBA1-405A-961C-656610C0AAFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E94CB4E-FBA1-405A-961C-656610C0AAFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E94CB4E-FBA1-405A-961C-656610C0AAFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E94CB4E-FBA1-405A-961C-656610C0AAFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{374D1151-991D-4F3F-85C9-98CF9BDA1E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{374D1151-991D-4F3F-85C9-98CF9BDA1E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{374D1151-991D-4F3F-85C9-98CF9BDA1E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{374D1151-991D-4F3F-85C9-98CF9BDA1E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F57FBB1-0C24-445F-AABF-58F1EFA54B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F57FBB1-0C24-445F-AABF-58F1EFA54B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F57FBB1-0C24-445F-AABF-58F1EFA54B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F57FBB1-0C24-445F-AABF-58F1EFA54B85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB48163F-B73E-431F-A6D1-5B642FA2F2E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB48163F-B73E-431F-A6D1-5B642FA2F2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB48163F-B73E-431F-A6D1-5B642FA2F2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB48163F-B73E-431F-A6D1-5B642FA2F2E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D42B444B-1B87-4E8E-95C3-C6AB8F8CBA1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D42B444B-1B87-4E8E-95C3-C6AB8F8CBA1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D42B444B-1B87-4E8E-95C3-C6AB8F8CBA1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D42B444B-1B87-4E8E-95C3-C6AB8F8CBA1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{164D88AA-0947-4993-B8D3-228E7D0C3777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{164D88AA-0947-4993-B8D3-228E7D0C3777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{164D88AA-0947-4993-B8D3-228E7D0C3777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{164D88AA-0947-4993-B8D3-228E7D0C3777}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
