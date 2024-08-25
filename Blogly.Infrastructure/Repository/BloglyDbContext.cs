@@ -4,11 +4,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blogly.Infrastructure.Repository;
 
-public class BloglyDbContext(DbContextOptions<BloglyDbContext> options) : DbContext(options)
+public class BloglyDbContext : DbContext
 {
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<Comment> Comments { get; set; }
+    
+    public BloglyDbContext(DbContextOptions<BloglyDbContext> options)
+        : base(options)
+    {}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
