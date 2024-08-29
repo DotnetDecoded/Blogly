@@ -41,7 +41,7 @@ public static class JwtSecurityUtil
             issuer: "Blogly GmBH",
             audience: "http://blogly.com",
             claims: claims,
-            expires: DateTime.UtcNow.AddHours(1).AddMinutes(30),
+            expires: DateTime.Now.AddMinutes(30),
             signingCredentials: signingCredentials
         );
 

@@ -3,6 +3,7 @@ using Blogly.Application.Implementations;
 using Blogly.Application.Interfaces;
 using Blogly.Infrastructure.Repository;
 using Blogly.Infrastructure.Repository.services;
+using Blogly.Sharedkernel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -43,23 +44,22 @@ public static class ServiceRegistrations
             x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
         }).AddJwtBearer("Bearer", options =>
         {
-            options.Audience = configuration["JwtSettings:Audience"];
-            options.ClaimsIssuer = configuration["JwtSettings:Issuer"];
-            
             options.TokenValidationParameters = new TokenValidationParameters()
             {
                 ValidateAudience = true,
                 ValidateIssuer = true,
                 ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:IssuerSigningKey"]!))
+                ValidAudience = configuration["JwtSettings:Audience"],
+                ValidIssuer = configuration["JwtSettings:Issuer"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("IAmTheCornerstoneAndThisIsMySecurityToken.ShareItIfYouMust"))
             };
 
             options.Events = new JwtBearerEvents()
             {
                 OnAuthenticationFailed = x =>
                 {
-                    if (x.Exception.GetType() == typeof(SecurityTokenExpiredException)) return Task.CompletedTask;
+                    if (x.Exception.GetType() != typeof(SecurityTokenExpiredException)) return Task.CompletedTask;
                     x.Response.StatusCode = StatusCodes.Status401Unauthorized;
                     x.Response.ContentType = "application/json";
                     return x.Response.WriteAsJsonAsync(new { message = "The token is expired." });
@@ -82,6 +82,17 @@ public static class ServiceRegistrations
             };
         });
 
-        serviceCollection.AddAuthorization();
+        serviceCollection.AddAuthorization(x =>
+        {
+            x.AddPolicy("admin_policy", builder =>
+            {
+                builder.RequireClaim(nameof(Role), Role.Admin.ToString());
+            });
+            
+            x.AddPolicy("author_policy", builder =>
+            {
+                builder.RequireClaim(nameof(Role), Role.Author.ToString());
+            });
+        });
     }
 }

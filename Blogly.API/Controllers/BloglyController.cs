@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Blogly.Controllers;
 
-//[Authorize]
+[Authorize]
 [ApiController]
 [Consumes("application/json")]
 public class BloglyController(IBloglyService bloglyService) : ControllerBase
