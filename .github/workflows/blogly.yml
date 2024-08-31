@@ -17,7 +17,7 @@ jobs:
   build:
     name: "Blogly build worker"
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -27,4 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Build the project
-        run: i am building
+      - run: dotnet build
+
+      - name: Saying done
+      - run: I am done o
