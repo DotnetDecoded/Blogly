@@ -30,4 +30,4 @@ jobs:
         run: dotnet build
 
       - name: Saying done
-        run: I am done o
+        run: echo "I am done with the build o"
