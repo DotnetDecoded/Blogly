@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Build the project
-      - run: dotnet build
+        run: dotnet build
 
       - name: Saying done
-      - run: I am done o
+        run: I am done o
