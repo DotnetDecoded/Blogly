@@ -24,7 +24,6 @@ public class BloglyController(IBloglyService bloglyService) : ControllerBase
     public async Task<IActionResult> GetUsers(CancellationToken token)
     {
         var response = await bloglyService.GetUsersAsync(token);
-
         return Ok(response);
     }
     
