@@ -32,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -49,6 +54,10 @@
             "xunit": {
               "target": "Package",
               "version": "[2.5.3, )"
+            },
+            "xunit.core": {
+              "target": "Package",
+              "version": "[2.9.0, )"
             },
             "xunit.runner.visualstudio": {
               "target": "Package",

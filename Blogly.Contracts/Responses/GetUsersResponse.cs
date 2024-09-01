@@ -4,7 +4,8 @@ namespace Blogly.Contracts.Responses;
 
 public class GetUsersResponse
 {
-    public IEnumerable<CreateUserResponse> Users {
+    public IEnumerable<CreateUserResponse> Users
+    {
         get;
         set;
     }
