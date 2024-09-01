@@ -30,7 +30,6 @@ public class BloglyController(IBloglyService bloglyService) : ControllerBase
     public async Task<IActionResult> GetUser([FromRoute] Guid id, CancellationToken token)
     {
         var response = await bloglyService.GetUserAsync(id, token);
-
         if (response is null) return NotFound();
         return Ok(response);
     }
