@@ -1,0 +1,35 @@
+name: Blogly CI
+
+on:
+  push:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Setup runner
+    runs-on: windows-latest
+
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: setup dotnet
+        uses: actions/setup-dotnet@v4
+        with: 
+          dotnet-version: 8.0
+
+      - name: run tests (which also builds broject)
+        run: dotnet test
+
+      - name: publish project artifacts
+        run: dotnet publish Blogly.API/Blogly.API.csproj --configuration Release -o artifacts
+
+      - name: upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: blogly-artifact
+          path: artifacts
+        
+    
