@@ -4,18 +4,23 @@ on:
   pull_request:
     branches: ["main"]
 
+  workflow_dispatch:  
+
 jobs:
   build:
     name: Project builder
-    runs-on: windows:latest
+    runs-on: windows-latest
 
     steps:
       - name: chackout the repo
         uses: actions/checkout@v4
 
       - name: build the project
-        run: dotnet build
+        run: dotnet build --configuration Release
+
+      - name: Run project tests
+        run: dotnet test --configuration Release --no-build
 
       - name: signify you are done  
-        run: echo I am done building the project...
+        run: echo "I am done building the project..."
     
