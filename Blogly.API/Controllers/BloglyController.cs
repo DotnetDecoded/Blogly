@@ -16,7 +16,6 @@ public class BloglyController(IBloglyService bloglyService) : ControllerBase
         var response = await bloglyService.CreateNewUserAsync(request, token);
 
         if (response == null) return BadRequest();
-
         return CreatedAtAction("GetUser", new {id = response.Id}, response);
     }
     
