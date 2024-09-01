@@ -13,7 +13,7 @@ public static class JwtSecurityUtil
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("IAmTheCornerstoneAndThisIsMySecurityToken.ShareItIfYouMust"));
         var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        
+
         List<Claim> claims =
         [
             new Claim(ClaimTypes.Sid, user.Id.ToString()),
@@ -35,7 +35,7 @@ public static class JwtSecurityUtil
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
+
         var token = new JwtSecurityToken
         (
             issuer: "Blogly GmBH",

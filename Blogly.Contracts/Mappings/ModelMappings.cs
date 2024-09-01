@@ -8,7 +8,7 @@ namespace Blogly.Contracts.Mappings;
 
 public static class ModelMappings
 {
-    public static ApplicationUser MapToUserEntity (this CreateUserRequest request)
+    public static ApplicationUser MapToUserEntity(this CreateUserRequest request)
     {
         return new ApplicationUser()
         {
@@ -20,8 +20,8 @@ public static class ModelMappings
             Country = request.Country
         };
     }
-    
-    public static CreateUserResponse MapToResponse (this ApplicationUser entity)
+
+    public static CreateUserResponse MapToResponse(this ApplicationUser entity)
     {
         return new CreateUserResponse()
         {
@@ -35,8 +35,8 @@ public static class ModelMappings
             Blogs = entity.Blogs.Select(MapToBlogResponse)
         };
     }
-    
-    public static Blog MapToBlogEntity (this CreateBlogRequest request)
+
+    public static Blog MapToBlogEntity(this CreateBlogRequest request)
     {
         return new Blog()
         {
@@ -46,8 +46,8 @@ public static class ModelMappings
             AuthorId = request.AuthorId,
         };
     }
-    
-    public static CreateBlogResponse MapToBlogResponse (this Blog entity)
+
+    public static CreateBlogResponse MapToBlogResponse(this Blog entity)
     {
         return new CreateBlogResponse()
         {
@@ -58,8 +58,8 @@ public static class ModelMappings
             AuthorId = entity.AuthorId,
         };
     }
-    
-    public static Comment MapToEntity (this CreateCommentRequest request)
+
+    public static Comment MapToEntity(this CreateCommentRequest request)
     {
         return new Comment()
         {
@@ -69,8 +69,8 @@ public static class ModelMappings
             UserId = request.UserId,
         };
     }
-    
-    public static CreateCommentResponse MapToCommentResponse (this Comment entity)
+
+    public static CreateCommentResponse MapToCommentResponse(this Comment entity)
     {
         return new CreateCommentResponse()
         {

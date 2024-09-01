@@ -3,7 +3,7 @@ namespace Blogly;
 public static class ApiEndpoints
 {
     private const string Base = "api";
-    
+
     public static class ApplicationUser
     {
         private const string UserBase = $"{Base}/users";
@@ -12,7 +12,7 @@ public static class ApiEndpoints
         public const string GetUser = $"{UserBase}/{{id:Guid}}";
         public const string DeleteUser = $"{UserBase}/{{id:Guid}}";
     }
-    
+
     public static class Blog
     {
         private const string BlogBase = $"{Base}/Blogs";

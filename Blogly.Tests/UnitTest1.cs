@@ -8,10 +8,10 @@ public class UnitTest1
         // arrange
         int firstNum = 2;
         int secondNum = 3;
-        
+
         // act
         int sum = firstNum + secondNum;
-        
+
         // assert
         Assert.Equal(5, sum);
     }

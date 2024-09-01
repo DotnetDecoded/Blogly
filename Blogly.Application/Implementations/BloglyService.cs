@@ -21,7 +21,7 @@ public class BloglyService(IBloglyRepository bloglyRepository) : IBloglyService
         var blog = request.MapToBlogEntity();
         var isBlogCreated = await bloglyRepository.CreateNewBlogAsync(blog, token);
 
-        return isBlogCreated ? blog.MapToBlogResponse() : null;    
+        return isBlogCreated ? blog.MapToBlogResponse() : null;
     }
 
     public async Task<CreateCommentResponse?> CreateNewCommentAsync(CreateCommentRequest request, CancellationToken token)
@@ -29,21 +29,21 @@ public class BloglyService(IBloglyRepository bloglyRepository) : IBloglyService
         var comment = request.MapToEntity();
         var isCommentCreated = await bloglyRepository.CreateNewCommentAsync(comment, token);
 
-        return isCommentCreated ? comment.MapToCommentResponse() : null;       
+        return isCommentCreated ? comment.MapToCommentResponse() : null;
     }
 
     public async Task<GetUsersResponse> GetUsersAsync(CancellationToken token)
     {
         var users = await bloglyRepository.GetUsersAsync(token);
 
-        return users.MapToResponse();   
+        return users.MapToResponse();
     }
 
     public async Task<CreateUserResponse?> GetUserAsync(Guid userId, CancellationToken token)
     {
         var user = await bloglyRepository.GetUserAsync(userId, token);
 
-        return user?.MapToResponse();     
+        return user?.MapToResponse();
     }
 
     public async Task<bool> DeleteUserAsync(Guid userId, CancellationToken token)

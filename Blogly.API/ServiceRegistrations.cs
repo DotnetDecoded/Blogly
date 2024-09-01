@@ -64,14 +64,14 @@ public static class ServiceRegistrations
                     x.Response.ContentType = "application/json";
                     return x.Response.WriteAsJsonAsync(new { message = "The token is expired." });
                 },
-                
+
                 OnForbidden = x =>
                 {
                     x.Response.StatusCode = StatusCodes.Status401Unauthorized;
                     x.Response.ContentType = "application/json";
                     return x.Response.WriteAsJsonAsync(new { message = "Sorry, you do have access to this resource." });
                 },
-                
+
                 OnChallenge = x =>
                 {
                     x.HandleResponse();
@@ -88,7 +88,7 @@ public static class ServiceRegistrations
             {
                 builder.RequireClaim(nameof(Role), Role.Admin.ToString());
             });
-            
+
             x.AddPolicy("author_policy", builder =>
             {
                 builder.RequireClaim(nameof(Role), Role.Author.ToString());

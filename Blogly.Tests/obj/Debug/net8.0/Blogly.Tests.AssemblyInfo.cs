@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Blogly.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8054beeb75c2dadda396ec0721bfbc44f0fb236")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f3decbe7064547b0fee7758378fe2d49e0810cc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Blogly.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Blogly.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
