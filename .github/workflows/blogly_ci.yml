@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Setup runner
+    name: blogly CI runner
     runs-on: windows-latest
 
     steps: 
@@ -20,7 +20,7 @@ jobs:
         with: 
           dotnet-version: 8.0
 
-      - name: run tests (which also builds broject)
+      - name: run tests (which also builds project)
         run: dotnet test
 
       - name: publish project artifacts
