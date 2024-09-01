@@ -13,6 +13,6 @@ public class UnitTest1
         int sum = firstNum + secondNum;
         
         // assert
-        Assert.Equal(4, sum);
+        Assert.Equal(5, sum);
     }
 }
