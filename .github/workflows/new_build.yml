@@ -1,0 +1,21 @@
+name: PR CHECKER NEW
+
+on: 
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    name: BUILD THE PROJECT
+    runs-on: windows:latest
+
+    steps:
+      - name: CHECKOUT THE REPO
+        uses: actions/checkout@v4
+
+      - name: RUN THE BUILD COMMAND
+        run: dotnet build
+
+      - name: SAY YOU ARE DONE
+        run: echo "I am done"
+      
