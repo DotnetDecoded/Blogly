@@ -14,7 +14,6 @@ public class BloglyController(IBloglyService bloglyService) : ControllerBase
     public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request, CancellationToken token)
     {
         var response = await bloglyService.CreateNewUserAsync(request, token);
-
         if (response == null) return BadRequest();
         return CreatedAtAction("GetUser", new {id = response.Id}, response);
     }
