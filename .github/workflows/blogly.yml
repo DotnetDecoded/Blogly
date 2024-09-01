@@ -4,10 +4,12 @@ on:
   pull_request:
     branches: ["main"]
 
+  workflow_dispatch:  
+
 jobs:
   build:
     name: Project builder
-    runs-on: windows:latest
+    runs-on: windows-latest
 
     steps:
       - name: chackout the repo
