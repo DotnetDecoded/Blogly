@@ -21,6 +21,9 @@ jobs:
       - name: Run project tests
         run: dotnet test --configuration Release --no-build
 
+      - name: check if project meets formatting rules
+        run: dotnet format -v detailed --verify-no-changes
+
       - name: signify you are done  
         run: echo "I am done building the project..."
     

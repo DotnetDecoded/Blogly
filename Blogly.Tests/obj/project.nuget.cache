@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qKb3i2dpk4Y=",
+  "dgSpecHash": "MZfDvGiJGO8=",
   "success": true,
   "projectFilePath": "/Users/toyinonagoruwa/Documents/Prog/Personal/Blogly/Blogly.Tests/Blogly.Tests.csproj",
   "expectedPackageFiles": [
@@ -89,10 +89,21 @@
     "/Users/toyinonagoruwa/.nuget/packages/xunit.abstractions/2.0.3/xunit.abstractions.2.0.3.nupkg.sha512",
     "/Users/toyinonagoruwa/.nuget/packages/xunit.analyzers/1.4.0/xunit.analyzers.1.4.0.nupkg.sha512",
     "/Users/toyinonagoruwa/.nuget/packages/xunit.assert/2.5.3/xunit.assert.2.5.3.nupkg.sha512",
-    "/Users/toyinonagoruwa/.nuget/packages/xunit.core/2.5.3/xunit.core.2.5.3.nupkg.sha512",
-    "/Users/toyinonagoruwa/.nuget/packages/xunit.extensibility.core/2.5.3/xunit.extensibility.core.2.5.3.nupkg.sha512",
-    "/Users/toyinonagoruwa/.nuget/packages/xunit.extensibility.execution/2.5.3/xunit.extensibility.execution.2.5.3.nupkg.sha512",
+    "/Users/toyinonagoruwa/.nuget/packages/xunit.core/2.9.0/xunit.core.2.9.0.nupkg.sha512",
+    "/Users/toyinonagoruwa/.nuget/packages/xunit.extensibility.core/2.9.0/xunit.extensibility.core.2.9.0.nupkg.sha512",
+    "/Users/toyinonagoruwa/.nuget/packages/xunit.extensibility.execution/2.9.0/xunit.extensibility.execution.2.9.0.nupkg.sha512",
     "/Users/toyinonagoruwa/.nuget/packages/xunit.runner.visualstudio/2.5.3/xunit.runner.visualstudio.2.5.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: xunit 2.5.3 requires xunit.core (= 2.5.3) but version xunit.core 2.9.0 was resolved.",
+      "libraryId": "xunit.core",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
