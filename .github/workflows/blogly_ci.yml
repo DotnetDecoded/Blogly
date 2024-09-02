@@ -5,7 +5,11 @@ on:
     branches: ["main"]
 
   workflow_dispatch:
-
+  
+permissions:
+  id-token: write
+  contents: read
+  
 jobs:
   build_job:
     name: blogly CI runner
