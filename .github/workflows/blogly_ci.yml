@@ -30,7 +30,7 @@ jobs:
         run: dotnet test --no-build
 
       - name: publish project
-        run: dotnet publish Blogly.API/Blogly.API.csproj --configuration Release -o blogly_artifact
+        run: dotnet publish Blogly.API/Blogly.API.csproj --configuration Release -o artifact
 
   Blogly-CI:
     name: Blogly CI job
@@ -40,8 +40,8 @@ jobs:
       - name: upload project artefacts
         uses: actions/upload-artifact@v4
         with:
-          name: blogly_artifact
-          path: blogly_artifact
+          name: artifact
+          path: artifact/
 
   Blogly-CD:
     name: Blogly CD job
@@ -51,8 +51,8 @@ jobs:
       - name: download project artifact
         uses: actions/download-artifact@v4
         with:
-          name: blogly_artifact
-          path: blogly_artifact
+          name: artifact
+          path: artifact/
 
       - name: login to azure
         uses: azure/login@v2
