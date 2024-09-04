@@ -6,6 +6,10 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+  
 jobs:
   Blogly_Build_Job:
     name: Blogly pipeline builder
