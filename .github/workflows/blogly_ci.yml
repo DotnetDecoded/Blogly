@@ -29,14 +29,14 @@ jobs:
       - name: run tests
         run: dotnet test --no-build
 
+      - name: publish project
+        run: dotnet publish Blogly.API/Blogly.API.csproj --configuration Release -o blogly_artifact
+
   Blogly-CI:
     name: Blogly CI job
     runs-on: windows-latest
     needs: Blogly_Build_Job
     steps:
-      - name: publish project
-        run: dotnet publish Blogly.API/Blogly.API.csproj --configuration Release -o blogly_artifact
-
       - name: upload project artefacts
         uses: actions/upload-artifact@v4
         with:
