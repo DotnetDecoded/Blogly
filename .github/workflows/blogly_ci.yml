@@ -42,10 +42,11 @@ jobs:
           name: artifact
           path: artifact/   
 
-  Blogly-CD:
-    name: Blogly CD job
+  Blogly-CD-Dev:
+    name: Blogly CD job dev
     runs-on: windows-latest 
     needs: Blogly_Build_Job
+    environment: dev
     steps:
       - name: download project artifact
         uses: actions/download-artifact@v4
@@ -67,9 +68,33 @@ jobs:
           package: artifact/
 
       - name: "Signify you're done"
-        run: echo "I am done o, Toyin!"
-      
-        
-      
+        run: echo "I am done for dev o, Toyin!"
 
+  Blogly-CD-Prod:
+    name: Blogly CD job prod
+    runs-on: windows-latest 
+    needs: Blogly-CD-Dev
+    environment: prod
+    steps:
+      - name: download project artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact
+          path: artifact/
+
+      - name: login to azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: 'deploy to Azure webapp'
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: app-blogly-prod
+          package: artifact/
+
+      - name: "Signify you're done"
+        run: echo "I am done for prod o, Toyin!"        
       
