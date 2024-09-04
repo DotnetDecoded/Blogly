@@ -1,63 +1,75 @@
-name: Blogly CI & CD job
+name: Blogly Deployment CI/CD (Dev & Prod)
 
 on:
   push:
     branches: ["main"]
 
   workflow_dispatch:
-  
+
 permissions:
   id-token: write
   contents: read
   
 jobs:
-  build_job:
-    name: blogly CI runner
+  Blogly_Build_Job:
+    name: Blogly pipeline builder
     runs-on: windows-latest
 
-    steps: 
-      - name: checkout repo
+    steps:
+      - name: check out the repo
         uses: actions/checkout@v4
 
       - name: setup dotnet
         uses: actions/setup-dotnet@v4
-        with: 
+        with:
           dotnet-version: 8.0
 
-      - name: run tests (which also builds project)
-        run: dotnet test
+      - name: build project
+        run: dotnet build
 
-      - name: publish project artifacts
-        run: dotnet publish Blogly.API/Blogly.API.csproj --configuration Release -o artifacts
+      - name: format project
+        run: dotnet format -v detailed --verify-no-changes
 
-      - name: upload build artifact
+      - name: run tests
+        run: dotnet test --no-build
+
+      - name: publish project
+        run: dotnet publish Blogly.API/Blogly.API.csproj --configuration Release -o artifact
+
+      - name: upload project artefacts
         uses: actions/upload-artifact@v4
         with:
-          name: blogly-artifact
-          path: artifacts/
-      
-  Deploy_dev:
-    name: Deploy app service
-    runs-on: windows-latest
-    needs: build_job
-    
-    steps:
-     - name: download build artifact
-       uses: actions/download-artifact@v4
-       with:
-        name: blogly-artifact
-        path: artifacts/
+          name: artifact
+          path: artifact/   
 
-     - name: Azure login
-       uses: azure/login@v2
-       with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}   
-          
-     - name: Deploy project to azure app sevice
-       uses: azure/webapps-deploy@v2
-       with: 
+  Blogly-CD:
+    name: Blogly CD job
+    runs-on: windows-latest 
+    needs: Blogly_Build_Job
+    steps:
+      - name: download project artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact
+          path: artifact/
+
+      - name: login to azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: 'deploy to Azure webapp'
+        uses: azure/webapps-deploy@v2
+        with: 
           app-name: app-blogly-dev
           package: artifacts/
+
+      - name: "Signify you're done"
+        run: echo "I am done o, Toyin!"
+      
         
+      
+
+      
