@@ -64,7 +64,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         with: 
           app-name: app-blogly-dev
-          package: artifacts/
+          package: artifact/
 
       - name: "Signify you're done"
         run: echo "I am done o, Toyin!"
