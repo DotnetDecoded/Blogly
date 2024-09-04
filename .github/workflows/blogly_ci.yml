@@ -32,21 +32,16 @@ jobs:
       - name: publish project
         run: dotnet publish Blogly.API/Blogly.API.csproj --configuration Release -o artifact
 
-  Blogly-CI:
-    name: Blogly CI job
-    runs-on: windows-latest
-    needs: Blogly_Build_Job
-    steps:
       - name: upload project artefacts
         uses: actions/upload-artifact@v4
         with:
           name: artifact
-          path: artifact/
+          path: artifact/   
 
   Blogly-CD:
     name: Blogly CD job
     runs-on: windows-latest 
-    needs: Blogly-CI
+    needs: Blogly_Build_Job
     steps:
       - name: download project artifact
         uses: actions/download-artifact@v4
