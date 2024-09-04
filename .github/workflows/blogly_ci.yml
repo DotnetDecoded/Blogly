@@ -1,7 +1,7 @@
 name: Blogly Deployment CI/CD (Dev & Prod)
 
 on:
-  pull_request:
+  push:
     branches: ["main"]
 
   workflow_dispatch:
